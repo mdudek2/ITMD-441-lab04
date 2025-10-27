@@ -21,4 +21,10 @@
   const hero = document.querySelector('#hero');
   hero.style.backgroundImage = "url(https://picsum.photos/id/683/1280/720)";
 
+  // Select the header and change it's background to be the same as the footer
+  const header = document.querySelector('header')
+  const footer = document.querySelector('footer');
+  const footer_background = getComputedStyle(footer).backgroundColor;
+  header.style.backgroundColor = footer_background;
+
 })();
