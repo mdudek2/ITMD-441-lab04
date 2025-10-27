@@ -17,4 +17,8 @@
     span.style.fontStyle = 'italic';
   });
 
+  // Select the hero section and change it's background image
+  const hero = document.querySelector('#hero');
+  hero.style.backgroundImage = "url(https://picsum.photos/id/683/1280/720)";
+
 })();
