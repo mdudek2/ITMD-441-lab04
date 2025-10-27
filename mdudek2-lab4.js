@@ -27,4 +27,8 @@
   const footer_background = getComputedStyle(footer).backgroundColor;
   header.style.backgroundColor = footer_background;
 
+  // Remove Get Started CTA from hero
+  const get_started = document.querySelector('#hero a')
+  get_started.remove();
+
 })();
