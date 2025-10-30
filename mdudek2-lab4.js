@@ -27,8 +27,47 @@
   const footer_background = getComputedStyle(footer).backgroundColor;
   header.style.backgroundColor = footer_background;
 
-  // Remove Get Started CTA from hero
+  // grab needed styles of old cta before deleting it
   const get_started = document.querySelector('#hero a')
+  const get_started_padding = getComputedStyle(get_started).padding;
+  const get_started_fontsize = getComputedStyle(get_started).fontSize;
+  
+  // Remove Get Started CTA from hero
   get_started.remove();
+  
+  // insert section below hero
+  hero.insertAdjacentHTML('afterend', `
+    <section id="afterhero">
+      <a href="contact.html" id="newcta">Schedule a Consultation Today</a>
+    </section>
+` );
+ 
+  // style the newly added section and cta
+  const afterhero = document.getElementById('afterhero')
+  const afterherocta = document.getElementById('newcta')
+  afterhero.style.backgroundColor = '#6495ed'
+  afterhero.style.display = 'flex'
+  afterhero.style.justifyContent = 'center'
+  afterhero.style.alignItems = 'center'
+  afterhero.style.paddingTop = '32px'
+  afterhero.style.paddingBottom = '32px'
+  afterherocta.style.padding = get_started_padding
+  afterherocta.style.fontSize = get_started_fontsize
+  afterherocta.style.backgroundColor = 'white'
+  afterherocta.style.border = '4px solid rgb(37, 99, 235)'
+  afterherocta.style.color = 'rgb(37, 99, 235)'
+  afterherocta.style.filter = 'drop-shadow(1px 1x)'
+
+  // remove bottom margin on hero to get rid of white space
+  hero.style.marginBottom = '0px'
+
+  // add margin to the bottom of afterhero section so that site matches picture
+  afterhero.style.marginBottom = '48px'
+  
+  // add click event listener
+  afterherocta.addEventListener('click', function(event) {
+    event.preventDefault(); // prevents navigating to contact.html
+    alert('Thank You for your Interest in Stellar Marketing!');
+  });
 
 })();
