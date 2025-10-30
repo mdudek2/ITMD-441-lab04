@@ -81,4 +81,20 @@
   // change the digital marketing icon to use Ads Click symbol
   icons[0].textContent = 'Ads_Click'
 
+  // change tile layout in marketing
+
+
+  // change musicians image
+  const music_img = document.querySelector('img[alt="Musicians"]')
+  music_img.src = 'https://picsum.photos/id/453/400/300'
+
+  // change copyright in footer
+  const footer_text = document.querySelector('footer p')
+  footer_text.textContent = '© 2025 Stellar Marketing Agency. All rights reserved.'
+
+
+  
+  
+  
+  
 })();
