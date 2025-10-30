@@ -4,7 +4,7 @@
   
   // select the h1 in the hero and modify it's text
   const hero_h1 = document.querySelector('#hero h1');
-  hero_h1.textContent = "Supercharge Your Brand with Stellar Marketing"
+  hero_h1.textContent = "Supercharge Your Brand with Stellar Marketing";
 
   // select the p in the hero and modify it's text
   const hero_p = document.querySelector('#hero p');
@@ -22,13 +22,13 @@
   hero.style.backgroundImage = "url(https://picsum.photos/id/683/1280/720)";
 
   // Select the header and change it's background to be the same as the footer
-  const header = document.querySelector('header')
+  const header = document.querySelector('header');
   const footer = document.querySelector('footer');
   const footer_background = getComputedStyle(footer).backgroundColor;
   header.style.backgroundColor = footer_background;
 
   // grab needed styles of old cta before deleting it
-  const get_started = document.querySelector('#hero a')
+  const get_started = document.querySelector('#hero a');
   const get_started_padding = getComputedStyle(get_started).padding;
   const get_started_fontsize = getComputedStyle(get_started).fontSize;
   
@@ -43,26 +43,26 @@
 ` );
  
   // style the newly added section and cta
-  const afterhero = document.getElementById('afterhero')
-  const afterherocta = document.getElementById('newcta')
-  afterhero.style.backgroundColor = '#6495ed'
-  afterhero.style.display = 'flex'
-  afterhero.style.justifyContent = 'center'
-  afterhero.style.alignItems = 'center'
-  afterhero.style.paddingTop = '32px'
-  afterhero.style.paddingBottom = '32px'
-  afterherocta.style.padding = get_started_padding
-  afterherocta.style.fontSize = get_started_fontsize
-  afterherocta.style.backgroundColor = 'white'
-  afterherocta.style.border = '4px solid rgb(37, 99, 235)'
-  afterherocta.style.color = 'rgb(37, 99, 235)'
-  afterherocta.style.filter = 'drop-shadow(1px 1x)'
+  const afterhero = document.getElementById('afterhero');
+  const afterherocta = document.getElementById('newcta');
+  afterhero.style.backgroundColor = '#6495ed';
+  afterhero.style.display = 'flex';
+  afterhero.style.justifyContent = 'center';
+  afterhero.style.alignItems = 'center';
+  afterhero.style.paddingTop = '32px';
+  afterhero.style.paddingBottom = '32px';
+  afterherocta.style.padding = get_started_padding;
+  afterherocta.style.fontSize = get_started_fontsize;
+  afterherocta.style.backgroundColor = 'white';
+  afterherocta.style.border = '4px solid rgb(37, 99, 235)';
+  afterherocta.style.color = 'rgb(37, 99, 235)';
+  afterherocta.style.filter = 'drop-shadow(1px 1x)';
 
   // remove bottom margin on hero to get rid of white space
-  hero.style.marginBottom = '0px'
+  hero.style.marginBottom = '0px';
 
   // add margin to the bottom of afterhero section to ensure proper spacing
-  afterhero.style.marginBottom = '48px'
+  afterhero.style.marginBottom = '48px';
   
   // add click event listener
   afterherocta.addEventListener('click', function(event) {
@@ -75,26 +75,45 @@
 
   // Loop through each icon and change the color to the correct shade of blue
   icons.forEach(icon => {
-    icon.style.color = '#6495ed'
+    icon.style.color = '#6495ed';
   });
   
   // change the digital marketing icon to use Ads Click symbol
-  icons[0].textContent = 'Ads_Click'
+  icons[0].textContent = 'Ads_Click';
 
   // change tile layout in marketing
+  
+  const grid = document.querySelector('[data-section="product_cards"]');
 
+  function updateGridLayout() {
+    
+    if (window.innerWidth >= 1024) {
+      
+      // Remove other grid layouts and add 4 column layout if window >= 1024px
+      grid.classList.remove('grid-cols-1', 'md:grid-cols-2');
+      grid.classList.add('grid-cols-4');
+    
+    } else if (window.innerWidth >= 768) {
+      grid.classList.remove('grid-cols-1', 'grid-cols-4');
+      grid.classList.add('md:grid-cols-2');
+   
+    } else {
+   
+      grid.classList.remove('md:grid-cols-2', 'grid-cols-4');
+      grid.classList.add('grid-cols-1');
+    }
+  }
+
+  // update the layout and add an event listener to update grid as needed
+  updateGridLayout();
+  window.addEventListener('resize', updateGridLayout);
 
   // change musicians image
-  const music_img = document.querySelector('img[alt="Musicians"]')
-  music_img.src = 'https://picsum.photos/id/453/400/300'
+  const music_img = document.querySelector('img[alt="Musicians"]');
+  music_img.src = 'https://picsum.photos/id/453/400/300';
 
   // change copyright in footer
-  const footer_text = document.querySelector('footer p')
-  footer_text.textContent = '© 2025 Stellar Marketing Agency. All rights reserved.'
+  const footer_text = document.querySelector('footer p');
+  footer_text.textContent = '© 2025 Stellar Marketing Agency. All rights reserved.';
 
-
-  
-  
-  
-  
 })();
