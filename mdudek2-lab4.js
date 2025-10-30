@@ -61,7 +61,7 @@
   // remove bottom margin on hero to get rid of white space
   hero.style.marginBottom = '0px'
 
-  // add margin to the bottom of afterhero section so that site matches picture
+  // add margin to the bottom of afterhero section to ensure proper spacing
   afterhero.style.marginBottom = '48px'
   
   // add click event listener
@@ -69,5 +69,16 @@
     event.preventDefault(); // prevents navigating to contact.html
     alert('Thank You for your Interest in Stellar Marketing!');
   });
+
+  // Select all spans with the class "material-symbols-outlined"
+  const icons = document.querySelectorAll('.material-symbols-outlined');
+
+  // Loop through each icon and change the color to the correct shade of blue
+  icons.forEach(icon => {
+    icon.style.color = '#6495ed'
+  });
+  
+  // change the digital marketing icon to use Ads Click symbol
+  icons[0].textContent = 'Ads_Click'
 
 })();
